@@ -35,6 +35,8 @@ void search_for_words(std::string sp, std::string word)
 {
     if (hash_table)
     {
+        std::transform(word.begin(), word.end(), word.begin(), [](unsigned char c)
+                       { return std::tolower(c); });
         for (auto h : words_index[word])
         {
             std::cout << h << "\n";
